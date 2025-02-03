@@ -1,13 +1,30 @@
-import logo from '../../assets/logo.png'
 
-export function Header (){
+import logo from '../../assets/logo.png'
+import restart from "../../assets/restart.svg"
+import styles from "./styles.module.css"
+
+type props = {
+    current: number
+    max: number
+    onRestart: () => void
+}
+
+
+export function Header({ current, max, onRestart }: props) {
     return (
-       <div>
-        <main>
+        <div className={styles.container}>
             <img src={logo} alt="logo" />
-            <button>teste</button>
-            <strong>5</strong> de 10 tentativas!
-        </main>
-       </div>
+            <header>
+                <span>
+                    <strong> {current}  </strong> de {max} tentativas!
+                </span>
+
+                <button type='button' onClick={onRestart}>
+                    <img src={restart} alt="icone de restart" />
+                </button>
+            </header>
+        </div>
+
+
     )
-  }
+}
