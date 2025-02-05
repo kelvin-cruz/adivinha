@@ -1,7 +1,11 @@
 import styles from "./app.module.css"
-import { Header } from './components/Header'
+
+import { LetterUsed } from "./components/LettersUsed"
+import { Button } from "./components/Button"
+import { Input } from './components/Input'
 import { Tip } from "./components/Tip"
 import { Letter } from "./components/Letter"
+import { Header } from './components/Header'
 
 
 export function App() {
@@ -21,11 +25,14 @@ export function App() {
           <Letter value="c" />
           <Letter value="t" />
         </div>
-
+        <h4>Palpite</h4>
+        <div className={styles.guess}>
+          <Input autoFocus maxLength={1} placeholder="?" />
+          <Button title="Confirmar" />
+        </div>
+        <LetterUsed />
 
       </main>
-
-
     </div>
   )
 }
